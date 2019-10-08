@@ -1,23 +1,25 @@
-saldo = 0
+import random
 
-print("Välkommen till swedbank")
-login = input("SKriv in ditt lösenord")
+saldo = random.randint(0,100000)
 
-if login == "lösenord":
-    print("välkommen till ditt konto")
-    print("ditt saldo är: " +str(saldo) + "kr")
+print("Välkommen till bank.")
+login = input("Snälla skriv in ditt lösenord: ")
+
+if login == "lösen":
+    print("Välkommen till ditt konto")
 else:
-    print("fel lösenord")
+    print("Fel lösenord. Snälla försök igen senare.")
 
-meny = input(" Vad vill du välja [i]insättning--[u]ttag-[a]vsluta: ")
+meny ="q"
 
-if meny == "i":
-    insätt = float(input("hur mycket vill du sätta in?: "))
-    saldo += insätt
-elif meny == "u":
-    utdrag = float(input("Hur mycket vill du ta ut?:"))
-elif meny == "a":
-    print("ha en trevlig dag")
-
-print(str(saldo) + "kr")
-
+while meny != "a":
+    print("Ditt saldo är: " + str(saldo) + "kr")
+    meny = input("Vad vill du välja.[i]nsättning--[u]ttag--[a]vsluta: ")
+    if meny == "i":
+        insätt = float(input("Hur mycket vill du sätta in?: "))
+        saldo += insätt
+    elif meny == "u":
+        utdrag = float(input("Hur mycket vill du ta ut?: "))
+        saldo -= utdrag
+    else:
+        print("Ha en trevlig dag.")    
